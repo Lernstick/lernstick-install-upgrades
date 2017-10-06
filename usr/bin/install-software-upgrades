@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# support for i18n and L10n
+. gettext.sh
+export TEXTDOMAIN=install-software-upgrades
+
+# show initial warning dialog
+zenity \
+	--warning \
+	--text="$(gettext "The upgrades will be running in a terminal window. Don't close this window!")"
+
+# remember current GNOME settings
+PICTURE_URI="$(gsettings get org.gnome.desktop.background picture-uri)"
+echo "PICTURE_URI=\"${PICTURE_URI}\""
+PICTURE_OPTIONS="$(gsettings get org.gnome.desktop.background picture-options)"
+echo "PICTURE_OPTIONS=\"${PICTURE_OPTIONS}\""
+PRIMARY_COLOR="$(gsettings get org.gnome.desktop.background primary-color)"
+echo "PRIMARY_COLOR=\"${PRIMARY_COLOR}\""
+BUTTON_LAYOUT="$(gsettings get org.gnome.desktop.wm.preferences button-layout)"
+echo "BUTTON_LAYOUT=\"${BUTTON_LAYOUT}\""
+
+# change GNOME settings to "kiosk mode"
+gsettings set org.gnome.desktop.background picture-uri "'file:////usr/share/gnome-control-center/pixmaps/noise-texture-light.png'"
+gsettings set org.gnome.desktop.background picture-options "'wallpaper'"
+gsettings set org.gnome.desktop.background primary-color "'#FF0000'"
+gsettings set org.gnome.desktop.wm.preferences button-layout "''"
+gsettings set org.gnome.desktop.lockdown disable-log-out true
+
+# run upgrade via package-management-wrapper
+pkexec package-management-wrapper_upgrades
+
+# restore previous GNOME settings
+gsettings set org.gnome.desktop.background picture-uri "${PICTURE_URI}"
+gsettings set org.gnome.desktop.background picture-options "${PICTURE_OPTIONS}"
+gsettings set org.gnome.desktop.background primary-color "${PRIMARY_COLOR}"
+gsettings set org.gnome.desktop.wm.preferences button-layout "${BUTTON_LAYOUT}"
+gsettings set org.gnome.desktop.lockdown disable-log-out false

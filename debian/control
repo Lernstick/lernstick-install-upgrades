@@ -1,0 +1,29 @@
+Source: lernstick-install-upgrades
+Section: admin
+Priority: optional
+Maintainer: Ronny Standtke <ronny.standtke@fhnw.ch>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+
+Package: lernstick-install-upgrades
+Architecture: all
+Depends: lernstick-package-management-wrapper (>=4)
+Description: Reliably install software upgrades
+ For our users (teachers and students) we need a simple and reliable way of
+ installing software upgrades. The usual tools for installing upgrades all have
+ their own set of problems:
+ - Unattended upgrades don't install packages that need user interaction (e.g.
+   config file prompts).
+ - GNOME package kit (gpk-update-viewer) is simple enough but doesn't install
+   new recommended packages.
+ - Synaptic does everything right but is much too powerful and complex.
+ Therefore we implemented a script that uses our package-management-wrapper to
+ reliably upgrade the package information and then runs "apt upgrade -y" in a
+ xterm window so that prompting the user is possible. To prevent users from
+ interrupting the upgrade process we:
+ - show a warning message
+ - remove the GNOME window decoration buttons
+ - disable the GNOME log out button
+ - change the GNOME desktop background to a red color
+ When the upgrade process is finished we reset these settings to their original
+ state of course.
