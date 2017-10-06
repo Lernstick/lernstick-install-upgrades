@@ -1,0 +1,5 @@
+debian/debhelper-build-stamp
+debian/files
+debian/lernstick-install-upgrades.debhelper.log
+debian/lernstick-install-upgrades.substvars
+debian/lernstick-install-upgrades/
