@@ -7,7 +7,7 @@ export TEXTDOMAIN=install-software-upgrades
 # show initial warning dialog
 zenity \
 	--warning \
-	--text="$(gettext "The upgrades will be running in a terminal window. Don't close this window!")"
+	--text="$(gettext "The upgrades will be running in a terminal window.\nDon't close this window!")"
 
 # remember current GNOME settings
 PICTURE_URI="$(gsettings get org.gnome.desktop.background picture-uri)"
@@ -35,3 +35,8 @@ gsettings set org.gnome.desktop.background picture-options "${PICTURE_OPTIONS}"
 gsettings set org.gnome.desktop.background primary-color "${PRIMARY_COLOR}"
 gsettings set org.gnome.desktop.wm.preferences button-layout "${BUTTON_LAYOUT}"
 gsettings set org.gnome.desktop.lockdown disable-log-out false
+
+# show final message
+zenity \
+	--info \
+	--text="$(gettext "The upgrade process finished.")"

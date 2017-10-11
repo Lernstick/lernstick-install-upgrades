@@ -1,7 +1,7 @@
 Initialisierung
 ---------------
 mkdir -p po/de
-xgettext -L Shell --add-comments=## usr/bin/install-software-upgrades
+xgettext -L Shell --add-comments=## usr/bin/install-software-upgrades*
 vi messages.po #header richtig füllen
 cp messages.po po/de/install-software-upgrades.po
 vi po/de/install-software-upgrades.po # erste Übersetzung
@@ -10,7 +10,7 @@ cd po; for i in *; do cd $i; MDIR="../../usr/share/locale/$i/LC_MESSAGES/"; mkdi
 
 Update:
 -------
-xgettext -L Shell --add-comments=## usr/bin/install-software-upgrades
+xgettext -L Shell --add-comments=## usr/bin/install-software-upgrades*
 cd po; for i in *; do cd $i; msgmerge -U install-software-upgrades.po ../../messages.po; cd ..; done; cd ..
 vi po/*/install-software-upgrades.po
 cd po; for i in *; do cd $i; msgfmt -o install-software-upgrades.mo install-software-upgrades.po; cd ..; done; cd ..

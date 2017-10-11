@@ -1,5 +1,9 @@
 debian/debhelper-build-stamp
 debian/files
+debian/lernstick-install-upgrades/
 debian/lernstick-install-upgrades.debhelper.log
 debian/lernstick-install-upgrades.substvars
-debian/lernstick-install-upgrades/
+po/de_CH/install-software-upgrades.mo
+po/de_CH/install-software-upgrades.po~
+po/de/install-software-upgrades.mo
+po/de/install-software-upgrades.po~

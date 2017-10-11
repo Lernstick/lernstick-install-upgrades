@@ -1,2 +1,2 @@
 #!/bin/sh
-package-management-wrapper xterm -e apt upgrade -y
+package-management-wrapper xterm -e install-software-upgrades-root

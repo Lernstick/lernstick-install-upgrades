@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Install upgrades
 Name[de]=Aktualisierungen installieren
-Exec=install-software-upgrades
+Exec=install-software-upgrades-user
 Icon=cs-xlet-update
 Type=Application
 Categories=PackageManager;
