@@ -1,3 +1,10 @@
+lernstick-install-upgrades (2) lernstick-8; urgency=medium
+
+  * [45e631] added .gitignore file
+  * [7f19a0] added file system (auplink / flush) and cache (apt-get clean) cleanup
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Wed, 11 Oct 2017 14:14:39 +0200
+
 lernstick-install-upgrades (1) lernstick-8; urgency=medium
 
   * initial commit
