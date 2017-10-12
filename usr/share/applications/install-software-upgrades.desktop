@@ -2,6 +2,6 @@
 Name=Install upgrades
 Name[de]=Aktualisierungen installieren
 Exec=install-software-upgrades-user
-Icon=cs-xlet-update
+Icon=lernstick-install-upgrades
 Type=Application
 Categories=PackageManager;

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="48" width="48" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <linearGradient id="a" gradientUnits="userSpaceOnUse" x2="0" y2="503.8" y1="543.8">
+   <stop stop-color="#c6cdd1" offset="0"/>
+   <stop stop-color="#e0e5e7" offset="1"/>
+  </linearGradient>
+  <linearGradient id="b" gradientUnits="userSpaceOnUse" y1="13" gradientTransform="translate(384.57 499.8)" x2="0" y2="33">
+   <stop stop-color="#f67400" offset="0"/>
+   <stop stop-color="#fdbc4b" offset="1"/>
+  </linearGradient>
+  <linearGradient id="c" xlink:href="#b" gradientUnits="userSpaceOnUse" y1="42" x2="0" y2="6"/>
+  <linearGradient id="d" y2="523.8" gradientUnits="userSpaceOnUse" y1="539.8" x2="428.57" x1="410.57">
+   <stop stop-color="#f67400" offset="0"/>
+   <stop stop-opacity="0" stop-color="#f67400" offset="1"/>
+  </linearGradient>
+  <linearGradient id="e" y2="536.8" gradientUnits="userSpaceOnUse" y1="520.8" x2="418.57" x1="402.57">
+   <stop stop-color="#292c2f" offset="0"/>
+   <stop stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-384.57-499.8)">
+  <g stroke-width="2.8" stroke-opacity=".55">
+   <rect rx="20" height="40" width="40" y="503.8" x="388.57" fill="url(#a)"/>
+   <path fill="url(#b)" d="m408.57 512.8l-9 9h5v11h8v-11h5z"/>
+   <path opacity=".5" d="m24 42c9.972 0 18-8.03 18-18 0-9.972-8.03-18-18-18v2c8.864 0 16 7.136 16 16s-7.136 16-16 16z" fill="#808080" transform="translate(384.57 499.8)"/>
+   <path fill="url(#d)" d="m408.57 505.8c-9.972 0-18 8.03-18 18 0 9.972 8.03 18 18 18 9.972 0 18-8.03 18-18 0-9.972-8.03-18-18-18m0 2c8.864 0 16 7.136 16 16s-7.136 16-16 16-16-7.136-16-16 7.136-16 16-16"/>
+   <path d="m24 42v-2c-8.864 0-16-7.136-16-16s7.136-16 16-16v-2c-9.972 0-18 8.03-18 18 0 9.972 8.03 18 18 18" fill="url(#c)" transform="translate(384.57 499.8)"/>
+   <path d="m4.01 23.5c-0.004 0.167-0.012 0.332-0.012 0.5 0 11.08 8.92 20 20 20s20-8.92 20-20c0-0.168-0.008-0.333-0.012-0.5-0.264 10.847-9.08 19.5-19.988 19.5-10.912 0-19.724-8.653-19.988-19.5" fill="#99a1a7" transform="translate(384.57 499.8)"/>
+  </g>
+  <path opacity=".2" fill-rule="evenodd" fill="url(#e)" d="m412.57 521.8v11h-8l10.06 10.06c5.685-1.796 10.248-6.05 12.467-11.533l-9.531-9.531z"/>
+ </g>
+</svg>
