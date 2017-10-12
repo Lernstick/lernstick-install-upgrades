@@ -4,15 +4,22 @@
 . gettext.sh
 export TEXTDOMAIN=install-software-upgrades
 
-# clean up aufs pseudo links
-if [ -e /sbin/auplink ]
-then
-	echo "$(gettext "Cleaning up file system, please wait...")"
-	/sbin/auplink / flush
-fi
+cleanup_fs_and_cache()
+{
+	# clean up aufs pseudo links
+	if [ -e /sbin/auplink ]
+	then
+		echo "$(gettext "Cleaning up file system, please wait...")"
+		/sbin/auplink / flush
+	fi
 
-# install upgrades
+	# empty the package cache
+	apt-get clean
+}
+
+# cleanup before and after installing upgrades
+cleanup_fs_and_cache
+
 apt-get upgrade -y
 
-# empty the package cache
-apt-get clean
+cleanup_fs_and_cache
