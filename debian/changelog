@@ -1,3 +1,9 @@
+lernstick-install-upgrades (3) lernstick-8; urgency=medium
+
+  * [bd1b85] cleanup file system and cache before AND after installing upgrades
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Thu, 12 Oct 2017 09:47:20 +0200
+
 lernstick-install-upgrades (2) lernstick-8; urgency=medium
 
   * [45e631] added .gitignore file
