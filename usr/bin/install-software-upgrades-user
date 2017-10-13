@@ -4,39 +4,94 @@
 . gettext.sh
 export TEXTDOMAIN=install-software-upgrades
 
-# show initial warning dialog
+# Playing with locks and calling dconf update while a GNOME session is running
+# leads to all kinds of strange behaviour and crashes (seen in Debian 8 with
+# GNOME 3.14). Therefore we leave the code in place but comment the actual
+# calls to it.
+
+unlock_dconf()
+{
+	# try unlocking the desktop background
+	if grep -q "/org/gnome/desktop/background/" /etc/dconf/db/local.d/locks/*
+	then
+		LOCK_TMP_DIR="$(mktemp -d)"
+		echo "LOCK_TMP_DIR=\"${LOCK_TMP_DIR}\""
+		for i in $(grep -l "/org/gnome/desktop/background/" /etc/dconf/db/local.d/locks/*)
+		do
+			echo "temporarily disabling $i"
+			sudo mv "$i" ${LOCK_TMP_DIR}/
+		done
+		sudo dconf update
+	fi
+}
+
+lock_dconf()
+{
+	if [ -n "${LOCK_TMP_DIR}" ]
+	then
+		sudo mv "${LOCK_TMP_DIR}"/* /etc/dconf/db/local.d/locks/
+		rmdir "${LOCK_TMP_DIR}"
+		sudo dconf update
+	fi
+}
+
+lock_desktop()
+{
+	if [ "${XDG_CURRENT_DESKTOP}" = "GNOME" ]
+	then
+		# remember current GNOME settings
+		PICTURE_URI="$(gsettings get org.gnome.desktop.background picture-uri)"
+		echo "PICTURE_URI=\"${PICTURE_URI}\""
+		PICTURE_OPTIONS="$(gsettings get org.gnome.desktop.background picture-options)"
+		echo "PICTURE_OPTIONS=\"${PICTURE_OPTIONS}\""
+		PRIMARY_COLOR="$(gsettings get org.gnome.desktop.background primary-color)"
+		echo "PRIMARY_COLOR=\"${PRIMARY_COLOR}\""
+		BUTTON_LAYOUT="$(gsettings get org.gnome.desktop.wm.preferences button-layout)"
+		echo "BUTTON_LAYOUT=\"${BUTTON_LAYOUT}\""
+
+		# TODO: uncomment in later version if GNOME handles calls to "dconf update" at
+		# runtime without crashes
+		#unlock_dconf
+
+		# change GNOME settings to "kiosk mode"
+		gsettings set org.gnome.desktop.background picture-uri "'file:////usr/share/gnome-control-center/pixmaps/noise-texture-light.png'"
+		gsettings set org.gnome.desktop.background picture-options "'wallpaper'"
+		gsettings set org.gnome.desktop.background primary-color "'#FF0000'"
+		gsettings set org.gnome.desktop.wm.preferences button-layout "''"
+		gsettings set org.gnome.desktop.lockdown disable-log-out true
+
+		# Locking the dconf database here in between is not useful as it would
+		# instantly fall back to the (default) keys in the system database instead of
+		# using the values in the user's database we just set with all the gsettings
+		# calls above.
+	fi
+}
+
+unlock_desktop()
+{
+	if [ "${XDG_CURRENT_DESKTOP}" = "GNOME" ]
+	then
+		# restore previous GNOME settings
+		gsettings set org.gnome.desktop.background picture-uri "${PICTURE_URI}"
+		gsettings set org.gnome.desktop.background picture-options "${PICTURE_OPTIONS}"
+		gsettings set org.gnome.desktop.background primary-color "${PRIMARY_COLOR}"
+		gsettings set org.gnome.desktop.wm.preferences button-layout "${BUTTON_LAYOUT}"
+		gsettings set org.gnome.desktop.lockdown disable-log-out false
+
+		# TODO: uncomment in later version if GNOME handles calls to "dconf update" at
+		# runtime without crashes
+		#lock_dconf
+	fi
+}
+
 zenity \
 	--warning \
 	--text="$(gettext "The upgrades will be running in a terminal window.\nDon't close this window!")"
 
-# remember current GNOME settings
-PICTURE_URI="$(gsettings get org.gnome.desktop.background picture-uri)"
-echo "PICTURE_URI=\"${PICTURE_URI}\""
-PICTURE_OPTIONS="$(gsettings get org.gnome.desktop.background picture-options)"
-echo "PICTURE_OPTIONS=\"${PICTURE_OPTIONS}\""
-PRIMARY_COLOR="$(gsettings get org.gnome.desktop.background primary-color)"
-echo "PRIMARY_COLOR=\"${PRIMARY_COLOR}\""
-BUTTON_LAYOUT="$(gsettings get org.gnome.desktop.wm.preferences button-layout)"
-echo "BUTTON_LAYOUT=\"${BUTTON_LAYOUT}\""
-
-# change GNOME settings to "kiosk mode"
-gsettings set org.gnome.desktop.background picture-uri "'file:////usr/share/gnome-control-center/pixmaps/noise-texture-light.png'"
-gsettings set org.gnome.desktop.background picture-options "'wallpaper'"
-gsettings set org.gnome.desktop.background primary-color "'#FF0000'"
-gsettings set org.gnome.desktop.wm.preferences button-layout "''"
-gsettings set org.gnome.desktop.lockdown disable-log-out true
-
-# run upgrade via package-management-wrapper
+lock_desktop
 pkexec package-management-wrapper_upgrades
+unlock_desktop
 
-# restore previous GNOME settings
-gsettings set org.gnome.desktop.background picture-uri "${PICTURE_URI}"
-gsettings set org.gnome.desktop.background picture-options "${PICTURE_OPTIONS}"
-gsettings set org.gnome.desktop.background primary-color "${PRIMARY_COLOR}"
-gsettings set org.gnome.desktop.wm.preferences button-layout "${BUTTON_LAYOUT}"
-gsettings set org.gnome.desktop.lockdown disable-log-out false
-
-# show final message
 zenity \
 	--info \
 	--text="$(gettext "The upgrade process finished.")"
