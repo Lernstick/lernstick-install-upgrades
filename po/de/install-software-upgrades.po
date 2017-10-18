@@ -23,7 +23,7 @@ msgstr "Das Dateisystem wird aufgeräumt, bitte warten..."
 
 #: usr/bin/install-software-upgrades-user:103
 msgid "Don't unplug the power supply of your computer!"
-msgstr "Entfernen Sie NICHT das Netzwerkkabel ihres Computers!"
+msgstr "Entfernen Sie NICHT die Stromversorgung ihres Computers!"
 
 #: usr/bin/install-software-upgrades-user:105
 msgid "Connect a power supply to your computer!"
