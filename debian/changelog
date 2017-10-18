@@ -1,3 +1,11 @@
+lernstick-install-upgrades (6) lernstick-8; urgency=medium
+
+  * [bddbd1] updated .gitignore file
+  * [533706] added postinst script to restart polkitd
+  * [71e129] added power supply check and warning
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Wed, 18 Oct 2017 12:24:41 +0200
+
 lernstick-install-upgrades (5) lernstick-8; urgency=medium
 
   * [1729a8] call gsettings only if actually running a GNOME session
