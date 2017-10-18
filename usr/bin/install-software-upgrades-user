@@ -83,10 +83,31 @@ unlock_desktop()
 		#lock_dconf
 	fi
 }
+#!/bin/sh
+
+system_is_plugged_in() {
+	for i in /sys/class/power_supply/*
+	do
+		if [ "$(cat $i/type)" = "Mains" -a "$(cat $i/online 2>/dev/null)" = "1" ]
+		then
+			# we found a power supply that is *NOT* a battery
+			# and it is "online" (aka plugged in)
+			return 0
+		fi
+	done
+	return 1
+}
+
+if system_is_plugged_in
+then
+	POWER_MESSAGE="$(gettext "Don't unplug the power supply of your computer!")"
+else
+	POWER_MESSAGE="$(gettext "Connect a power supply to your computer!")"
+fi
 
 zenity \
 	--warning \
-	--text="$(gettext "The upgrades will be running in a terminal window.\nDon't close this window!")"
+	--text="$(gettext "The upgrades will be running in a terminal window.\nDon't close this window!")\n${POWER_MESSAGE}\n$(gettext "Don't turn off the computer!")"
 
 lock_desktop
 pkexec package-management-wrapper_upgrades
