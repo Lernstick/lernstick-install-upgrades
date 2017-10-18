@@ -1,3 +1,10 @@
+lernstick-install-upgrades (7) lernstick-8; urgency=medium
+
+  * [b654d7] fixed postinst script so that it works in Debian 8 and Debian 9
+  * [ae0755] disable more power saving options during upgrade
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Wed, 18 Oct 2017 14:19:37 +0200
+
 lernstick-install-upgrades (6) lernstick-8; urgency=medium
 
   * [bddbd1] updated .gitignore file
