@@ -3,6 +3,7 @@ debian/files
 debian/lernstick-install-upgrades/
 debian/lernstick-install-upgrades.debhelper.log
 debian/lernstick-install-upgrades.substvars
+messages.po
 po/de_CH/install-software-upgrades.mo
 po/de_CH/install-software-upgrades.po~
 po/de/install-software-upgrades.mo
