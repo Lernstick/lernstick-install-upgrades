@@ -20,6 +20,6 @@ cleanup_fs_and_cache()
 # cleanup before and after installing upgrades
 cleanup_fs_and_cache
 
-apt-get upgrade -y
+apt upgrade -y
 
 cleanup_fs_and_cache
