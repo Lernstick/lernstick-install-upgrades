@@ -1,3 +1,9 @@
+lernstick-install-upgrades (9) lernstick-8; urgency=medium
+
+  * [ef8b38] updated German L10N
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Wed, 18 Oct 2017 15:26:25 +0200
+
 lernstick-install-upgrades (8) lernstick-8; urgency=medium
 
   * [3e6a79] use apt instead of apt-get to also install new recommended packages
