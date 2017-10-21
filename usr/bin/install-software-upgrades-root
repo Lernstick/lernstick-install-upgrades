@@ -4,13 +4,29 @@
 . gettext.sh
 export TEXTDOMAIN=install-software-upgrades
 
+auplink_check()
+{
+	# check if auplink is necessary and possible
+	if grep -q "aufs / aufs" /proc/mounts
+	then
+		if [ ! -e /sbin/auplink ]
+		then
+			echo "$(gettext "WARNING: /sbin/auplink not found. Can't clean up file system. Please install the package \"aufs-tools\".\nPress ENTER to continue...")"
+			read blah
+		fi
+	fi
+}
+
 cleanup_fs_and_cache()
 {
 	# clean up aufs pseudo links
-	if [ -e /sbin/auplink ]
+	if grep -q "aufs / aufs" /proc/mounts
 	then
-		echo "$(gettext "Cleaning up file system, please wait...")"
-		/sbin/auplink / flush
+		if [ -e /sbin/auplink ]
+		then
+			echo "$(gettext "Cleaning up file system, please wait...")"
+			/sbin/auplink / flush
+		fi
 	fi
 
 	# empty the package cache
@@ -18,8 +34,7 @@ cleanup_fs_and_cache()
 }
 
 # cleanup before and after installing upgrades
+auplink_check
 cleanup_fs_and_cache
-
 apt upgrade -y
-
 cleanup_fs_and_cache

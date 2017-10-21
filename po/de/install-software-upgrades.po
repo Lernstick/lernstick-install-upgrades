@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-18 12:02+0200\n"
+"POT-Creation-Date: 2017-10-22 00:40+0200\n"
 "PO-Revision-Date: 2017-10-06 17:36+0200\n"
 "Last-Translator: Ronny Standtke <ronny.standtke@gmx.net>\n"
 "Language-Team: DE <DE@li.org>\n"
@@ -17,29 +17,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: usr/bin/install-software-upgrades-root:12
+#: usr/bin/install-software-upgrades-root:14
+msgid ""
+"WARNING: /sbin/auplink not found. Can't clean up file system. Please install "
+"the package \"aufs-tools\".\\nPress ENTER to continue..."
+msgstr ""
+"WARNUNG: /sbin/auplink nicht gefunden. Das Dateisystem kann nicht aufgeräumt "
+"werden. Bitte installieren Sie das Paket \"aufs-tools\".\\nZum Fortfahren "
+"ENTER drücken..."
+
+#: usr/bin/install-software-upgrades-root:27
 msgid "Cleaning up file system, please wait..."
 msgstr "Das Dateisystem wird aufgeräumt, bitte warten..."
 
-#: usr/bin/install-software-upgrades-user:103
+#: usr/bin/install-software-upgrades-user:117
 msgid "Don't unplug the power supply of your computer!"
 msgstr "Entfernen Sie NICHT die Stromversorgung ihres Computers!"
 
-#: usr/bin/install-software-upgrades-user:105
+#: usr/bin/install-software-upgrades-user:119
 msgid "Connect a power supply to your computer!"
 msgstr "Schließen Sie ihren Computer an eine Stromversorgung an!"
 
-#: usr/bin/install-software-upgrades-user:110
+#: usr/bin/install-software-upgrades-user:124
 msgid ""
 "The upgrades will be running in a terminal window.\\nDon't close this window!"
 msgstr ""
 "Die Aktualisierungen werden in einem Terminal-Fenster ausgeführt.\\nDieses "
 "Fenster NICHT schließen!"
 
-#: usr/bin/install-software-upgrades-user:110
+#: usr/bin/install-software-upgrades-user:124
 msgid "Don't turn off the computer!"
 msgstr "Schalten Sie den Computer NICHT aus!"
 
-#: usr/bin/install-software-upgrades-user:118
+#: usr/bin/install-software-upgrades-user:132
 msgid "The upgrade process finished."
 msgstr "Die Aktualisierungen sind abgeschlossen."
