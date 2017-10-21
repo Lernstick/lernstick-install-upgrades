@@ -1,3 +1,9 @@
+lernstick-install-upgrades (10) lernstick-8; urgency=medium
+
+  * [fac46e] added check if auplink is necessary and warning if it is missing
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Sun, 22 Oct 2017 00:44:04 +0200
+
 lernstick-install-upgrades (9) lernstick-8; urgency=medium
 
   * [ef8b38] updated German L10N
