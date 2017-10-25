@@ -1,3 +1,9 @@
+lernstick-install-upgrades (11) lernstick-8; urgency=medium
+
+  * [6627da] disabled lock/unlock feature (too problematic)
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Wed, 25 Oct 2017 23:38:55 +0200
+
 lernstick-install-upgrades (10) lernstick-8; urgency=medium
 
   * [fac46e] added check if auplink is necessary and warning if it is missing
