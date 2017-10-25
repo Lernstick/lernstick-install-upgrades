@@ -123,9 +123,12 @@ zenity \
 	--warning \
 	--text="$(gettext "The upgrades will be running in a terminal window.\nDon't close this window!")\n${POWER_MESSAGE}\n$(gettext "Don't turn off the computer!")"
 
-lock_desktop
+# If the system crashes after we lock the desktop most users are unable to
+# return to the normal settings. Therefore we are let the lock/unlock feature
+# disabled for now...
+#lock_desktop
 systemd-inhibit --what="shutdown:sleep:idle:handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch" --who="upgrade installation script" --why="installing upgrades" pkexec package-management-wrapper_upgrades
-unlock_desktop
+#unlock_desktop
 
 zenity \
 	--info \
