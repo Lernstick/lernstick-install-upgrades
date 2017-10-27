@@ -1,3 +1,9 @@
+lernstick-install-upgrades (12) lernstick-8; urgency=medium
+
+  * [77618c] use different colors for different cleanup rounds
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Fri, 27 Oct 2017 21:37:44 +0200
+
 lernstick-install-upgrades (11) lernstick-8; urgency=medium
 
   * [6627da] disabled lock/unlock feature (too problematic)
