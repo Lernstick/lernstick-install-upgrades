@@ -4,6 +4,10 @@
 . gettext.sh
 export TEXTDOMAIN=install-software-upgrades
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
 auplink_check()
 {
 	# check if auplink is necessary and possible
@@ -35,6 +39,12 @@ cleanup_fs_and_cache()
 
 # cleanup before and after installing upgrades
 auplink_check
+
+echo "${RED}"
 cleanup_fs_and_cache
+echo "${NC}"
+
 apt upgrade -y
+
+echo "${GREEN}"
 cleanup_fs_and_cache
