@@ -1,3 +1,9 @@
+lernstick-install-upgrades (13) lernstick-8; urgency=medium
+
+  * [0d9a9e] disabled auplink for now (too crash prone)
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Sat, 11 Nov 2017 14:36:28 +0100
+
 lernstick-install-upgrades (12) lernstick-8; urgency=medium
 
   * [77618c] use different colors for different cleanup rounds
