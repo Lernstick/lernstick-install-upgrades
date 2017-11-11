@@ -23,22 +23,29 @@ auplink_check()
 
 cleanup_fs_and_cache()
 {
-	# clean up aufs pseudo links
-	if grep -q "aufs / aufs" /proc/mounts
-	then
-		if [ -e /sbin/auplink ]
-		then
-			echo "$(gettext "Cleaning up file system, please wait...")"
-			/sbin/auplink / flush
-		fi
-	fi
+	# FIXME:
+	# auplink flushing crashes much too often (between 5-10 % of all test runs
+	# crashed the kernel).
+	# Therefore we leave out the auplink part for the time being...
+
+	## clean up aufs pseudo links
+	#if grep -q "aufs / aufs" /proc/mounts
+	#then
+	#	if [ -e /sbin/auplink ]
+	#	then
+	#		echo "$(gettext "Cleaning up file system, please wait...")"
+	#		/sbin/auplink / flush
+	#	fi
+	#fi
 
 	# empty the package cache
 	apt-get clean
 }
 
-# cleanup before and after installing upgrades
-auplink_check
+# FIXME:
+# as stated above, auplink is too crashy, therefore disabled for now...
+## cleanup before and after installing upgrades
+#auplink_check
 
 echo "${RED}"
 cleanup_fs_and_cache
