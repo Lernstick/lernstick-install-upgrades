@@ -1,3 +1,9 @@
+lernstick-install-upgrades (14) lernstick-8; urgency=medium
+
+  * [36b630] added anoter info message at the beginning of the root script
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Fri, 01 Dec 2017 12:22:59 +0100
+
 lernstick-install-upgrades (13) lernstick-8; urgency=medium
 
   * [0d9a9e] disabled auplink for now (too crash prone)
