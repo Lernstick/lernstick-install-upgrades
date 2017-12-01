@@ -4,6 +4,11 @@
 . gettext.sh
 export TEXTDOMAIN=install-software-upgrades
 
+echo "${RED}"
+echo "$(gettext "Don't close this window!")"
+echo "${NC}"
+echo "$(gettext "Please wait until all upgrades have been installed...")"
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
