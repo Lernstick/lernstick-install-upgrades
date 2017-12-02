@@ -1,3 +1,9 @@
+lernstick-install-upgrades (15) lernstick-8; urgency=medium
+
+  * [033f3d] fixed message coloring
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Sat, 02 Dec 2017 08:04:33 +0100
+
 lernstick-install-upgrades (14) lernstick-8; urgency=medium
 
   * [36b630] added anoter info message at the beginning of the root script
