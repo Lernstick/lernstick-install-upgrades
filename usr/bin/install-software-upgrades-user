@@ -119,7 +119,10 @@ else
 	POWER_MESSAGE="$(gettext "Connect a power supply to your computer!")"
 fi
 
+# TODO: remove --no-wrap option once zenity is fixed, see
+# https://bugs.launchpad.net/ubuntu/+source/zenity/+bug/1206760
 zenity \
+	--no-wrap \
 	--warning \
 	--text="$(gettext "The upgrades will be running in a terminal window.\nDon't close this window!")\n${POWER_MESSAGE}\n$(gettext "Don't turn off the computer!")"
 
@@ -130,6 +133,9 @@ zenity \
 systemd-inhibit --what="shutdown:sleep:idle:handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch" --who="upgrade installation script" --why="installing upgrades" pkexec package-management-wrapper_upgrades
 #unlock_desktop
 
+# TODO: remove --no-wrap option once zenity is fixed, see
+# https://bugs.launchpad.net/ubuntu/+source/zenity/+bug/1206760
 zenity \
+	--no-wrap \
 	--info \
 	--text="$(gettext "The upgrade process finished.")"
