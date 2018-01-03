@@ -1,3 +1,10 @@
+lernstick-install-upgrades (17) lernstick-9; urgency=medium
+
+  * [27d3fe] added "--no-wrap" option to zenity as a workaround for bug
+    https://bugs.launchpad.net/ubuntu/+source/zenity/+bug/1206760
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Wed, 03 Jan 2018 12:47:29 +0100
+
 lernstick-install-upgrades (15) lernstick-8; urgency=medium
 
   * [033f3d] fixed message coloring
