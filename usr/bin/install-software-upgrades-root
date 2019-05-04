@@ -60,3 +60,8 @@ apt upgrade -y
 
 echo "${GREEN}"
 cleanup_fs_and_cache
+
+if command -v flatpak > /dev/null
+then
+	flatpak update
+fi
