@@ -1,3 +1,9 @@
+lernstick-install-upgrades (18) lernstick-9; urgency=medium
+
+  * [84769c] added support for flatpak
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Sat, 04 May 2019 05:41:34 +0200
+
 lernstick-install-upgrades (17) lernstick-9; urgency=medium
 
   * [27d3fe] added "--no-wrap" option to zenity as a workaround for bug
