@@ -1,3 +1,9 @@
+lernstick-install-upgrades (19) lernstick-9; urgency=medium
+
+  * [24718c] made upgrading flatpaks noninteractive
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Mon, 13 May 2019 22:59:54 +0200
+
 lernstick-install-upgrades (18) lernstick-9; urgency=medium
 
   * [84769c] added support for flatpak
