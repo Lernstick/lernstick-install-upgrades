@@ -60,8 +60,29 @@ apt upgrade -y
 
 echo "${GREEN}"
 cleanup_fs_and_cache
+echo "${NC}"
+
+get_nvidia_versions() {
+	PACKAGE_PATTERN=$1
+	echo "$(dpkg -l "$PACKAGE_PATTERN" | grep ^ii | awk {' print $3 '} | sed "s/\(.*\)-.*/\1/g" | sed "s/\./-/g")"
+}
+
+sync_nvidia_flatpak() {
+	for NVIDIA_VERSION in $(get_nvidia_versions "nvidia-driver") $(get_nvidia_versions "nvidia-legacy-*xx-driver")
+	do
+		if ! flatpak list | grep -q org.freedesktop.Platform.GL.nvidia-${NVIDIA_VERSION}
+		then
+			flatpak install -y org.freedesktop.Platform.GL.nvidia-${NVIDIA_VERSION}
+		fi
+	done
+}
 
 if command -v flatpak > /dev/null
 then
 	flatpak --noninteractive update
+	# For some (so far unknown) reasons the installation of an nvidia flatpak
+	# driver sometimes fails at the first attempt but works fine when trying
+	# again. Therefore we run sync_nvidia_flatpak twice here.
+	sync_nvidia_flatpak
+	sync_nvidia_flatpak
 fi
