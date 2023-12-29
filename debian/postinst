@@ -20,14 +20,7 @@ set -e
 
 case "$1" in
 	configure)
-		if systemctl is-enabled polkitd
-		then
-			# Debian 8
-			systemctl restart polkitd
-		else
-			# Debian 9
-			systemctl restart polkit
-		fi
+		systemctl restart polkit
 		;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
