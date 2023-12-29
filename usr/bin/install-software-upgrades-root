@@ -56,7 +56,7 @@ echo "${RED}"
 cleanup_fs_and_cache
 echo "${NC}"
 
-apt upgrade -y
+nala upgrade -y
 
 echo "${GREEN}"
 cleanup_fs_and_cache
