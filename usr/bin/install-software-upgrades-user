@@ -126,11 +126,46 @@ zenity \
 	--warning \
 	--text="$(gettext "The upgrades will be running in a terminal window.\nDon't close this window!")\n${POWER_MESSAGE}\n$(gettext "Don't turn off the computer!")"
 
+case $DESKTOP_SESSION in
+
+  cinnamon|gnome-xorg)
+    TERMINAL_COMMAND="gnome-terminal --wait --"
+    ;;
+
+  enlightenment)
+    TERMINAL_COMMAND="terminology -e"
+    ;;
+
+  LXDE)
+    TERMINAL_COMMAND="lxterminal -e"
+    ;;
+
+  mate)
+    TERMINAL_COMMAND="mate-terminal -e"
+    ;;
+
+  plasma)
+    TERMINAL_COMMAND="konsole -e"
+    ;;
+
+  xfce)
+    TERMINAL_COMMAND="xfce4-terminal -e"
+    ;;
+
+  *)
+    TERMINAL_COMMAND="xterm -e"
+    ;;
+esac
+
 # If the system crashes after we lock the desktop most users are unable to
 # return to the normal settings. Therefore we are let the lock/unlock feature
 # disabled for now...
 #lock_desktop
-systemd-inhibit --what="shutdown:sleep:idle:handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch" --who="upgrade installation script" --why="installing upgrades" pkexec package-management-wrapper_upgrades
+systemd-inhibit \
+	--what="shutdown:sleep:idle:handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch" \
+	--who="upgrade installation script" \
+	--why="installing upgrades" \
+	pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY package-management-wrapper_upgrades "$TERMINAL_COMMAND"
 #unlock_desktop
 
 # TODO: remove --no-wrap option once zenity is fixed, see
