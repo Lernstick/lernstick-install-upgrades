@@ -1,3 +1,11 @@
+lernstick-install-upgrades (22) lernstick-12; urgency=medium
+
+  * [15b56f] increased compat level
+  * [9d1ac4] simplyfied postinst script
+  * [f92242] updated .gitignore file
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Fri, 29 Dec 2023 23:15:43 +0100
+
 lernstick-install-upgrades (21) lernstick-12; urgency=medium
 
   * [caf160] use desktop environment specific terminal emulator
