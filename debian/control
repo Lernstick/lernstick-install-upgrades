@@ -7,7 +7,7 @@ Standards-Version: 3.7.3
 
 Package: lernstick-install-upgrades
 Architecture: all
-Depends: lernstick-package-management-wrapper (>=4)
+Depends: lernstick-package-management-wrapper (>=4), nala
 Description: Reliably install software upgrades
  For our users (teachers and students) we need a simple and reliable way of
  installing software upgrades. The usual tools for installing upgrades all have
@@ -18,8 +18,8 @@ Description: Reliably install software upgrades
    new recommended packages.
  - Synaptic does everything right but is much too powerful and complex.
  Therefore we implemented a script that uses our package-management-wrapper to
- reliably upgrade the package information and then runs "apt upgrade -y" in a
- xterm window so that prompting the user is possible. To prevent users from
+ reliably upgrade the package information and then runs "nala upgrade -y" in a
+ terminal window so that prompting the user is possible. To prevent users from
  interrupting the upgrade process we:
  - show a warning message
  - remove the GNOME window decoration buttons
