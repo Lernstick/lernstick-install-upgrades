@@ -1,3 +1,9 @@
+lernstick-install-upgrades (23) lernstick-12; urgency=medium
+
+  * [a14e81] maximize gnome-terminal
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Tue, 09 Jan 2024 20:13:41 +0100
+
 lernstick-install-upgrades (22) lernstick-12; urgency=medium
 
   * [15b56f] increased compat level
