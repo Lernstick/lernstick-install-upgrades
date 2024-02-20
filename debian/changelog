@@ -1,3 +1,9 @@
+lernstick-install-upgrades (25) lernstick-12; urgency=medium
+
+  * [e7712f] added config-package-dev to build dependencies
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Tue, 20 Feb 2024 10:37:21 +0100
+
 lernstick-install-upgrades (24) lernstick-12; urgency=medium
 
   * [582814] use wildcard for gnome in terminal selection
