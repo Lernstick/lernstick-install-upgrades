@@ -2,7 +2,7 @@ Source: lernstick-install-upgrades
 Section: admin
 Priority: optional
 Maintainer: Ronny Standtke <ronny.standtke@fhnw.ch>
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 7), config-package-dev
 Standards-Version: 3.7.3
 
 Package: lernstick-install-upgrades
