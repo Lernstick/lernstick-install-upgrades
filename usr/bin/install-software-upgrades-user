@@ -128,7 +128,7 @@ zenity \
 
 case $DESKTOP_SESSION in
 
-  cinnamon|gnome-xorg)
+  cinnamon|gnome*)
     TERMINAL_COMMAND="gnome-terminal --maximize --wait --"
     ;;
 
