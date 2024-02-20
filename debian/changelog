@@ -1,3 +1,9 @@
+lernstick-install-upgrades (24) lernstick-12; urgency=medium
+
+  * [582814] use wildcard for gnome in terminal selection
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Tue, 20 Feb 2024 10:33:50 +0100
+
 lernstick-install-upgrades (23) lernstick-12; urgency=medium
 
   * [a14e81] maximize gnome-terminal
