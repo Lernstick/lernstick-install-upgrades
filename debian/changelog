@@ -1,3 +1,9 @@
+lernstick-install-upgrades (26) lernstick-12; urgency=medium
+
+  * [a9b4d5] added timeout handling for keeping the window open if needed
+
+ -- Ronny Standtke <ronny.standtke@gmx.net>  Thu, 18 Apr 2024 09:35:23 +0200
+
 lernstick-install-upgrades (25) lernstick-12; urgency=medium
 
   * [e7712f] added config-package-dev to build dependencies
