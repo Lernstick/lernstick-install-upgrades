@@ -1,17 +1,17 @@
-#!/bin/sh
+#!/bin/bash
+
+# This script REALLY has to run via bash instead of sh because
+# we use read with the option "-t", which doesn't work with sh.
 
 # support for i18n and L10n
 . gettext.sh
 export TEXTDOMAIN=install-software-upgrades
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+RED="31"
+BOLD_RED="\e[1;${RED}m"
 
-echo "${RED}"
-echo "$(gettext "Don't close this window!")"
-echo "$(gettext "Please wait until all upgrades have been installed...")"
-echo "${NC}"
+echo -e "${BOLD_RED}$(gettext "Don't close this window!")"
+echo -e "${BOLD_RED}$(gettext "Please wait until all upgrades have been installed...")"
 
 auplink_check()
 {
@@ -47,26 +47,43 @@ cleanup_fs_and_cache()
 	apt-get clean
 }
 
+countdown() {
+	secs=$1
+	while [ $secs -gt 0 ]; do
+		echo -ne "Countdown: $secs\033[0K\r"
+		secs=$((secs-1))
+
+		read -t 1 -n 1 key
+		RETURN_OF_READ=$?
+
+		if [ $RETURN_OF_READ -eq 0 ]; then
+			echo "$(gettext "Key press detected. Window is not closed automatically.")"
+			while true
+			do
+				sleep 1
+			done
+		fi
+	done
+}
+
 # FIXME:
 # as stated above, auplink is too crashy, therefore disabled for now...
 ## cleanup before and after installing upgrades
 #auplink_check
 
-echo "${RED}"
 cleanup_fs_and_cache
-echo "${NC}"
 
 nala upgrade -y
 
-echo "${GREEN}"
 cleanup_fs_and_cache
-echo "${NC}"
 
 get_nvidia_versions() {
 	PACKAGE_PATTERN=$1
 	echo "$(dpkg -l "$PACKAGE_PATTERN" | grep ^ii | awk {' print $3 '} | sed "s/\(.*\)-.*/\1/g" | sed "s/\./-/g")"
 }
 
+# TODO: This seems to be no longer needed, as the nvidia driver
+# is pinned during the build process...
 sync_nvidia_flatpak() {
 	for NVIDIA_VERSION in $(get_nvidia_versions "nvidia-driver") $(get_nvidia_versions "nvidia-legacy-*xx-driver")
 	do
@@ -86,3 +103,8 @@ then
 	sync_nvidia_flatpak
 	sync_nvidia_flatpak
 fi
+
+TIMEOUT=10
+echo "$(gettext "This window will be closed automatically in \$TIMEOUT seconds.")
+echo "$(gettext "Press any key to keep this window open.")
+countdown $TIMEOUT

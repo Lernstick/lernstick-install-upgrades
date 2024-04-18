@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-01 11:41+0100\n"
+"POT-Creation-Date: 2024-04-18 09:30+0200\n"
 "PO-Revision-Date: 2017-10-06 17:36+0200\n"
 "Last-Translator: Ronny Standtke <ronny.standtke@gmx.net>\n"
 "Language-Team: DE <DE@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: usr/bin/install-software-upgrades-root:8
+#: usr/bin/install-software-upgrades-root:13
 msgid "Don't close this window!"
 msgstr "Dieses Fenster nicht schließen!"
 
-#: usr/bin/install-software-upgrades-root:10
+#: usr/bin/install-software-upgrades-root:14
 msgid "Please wait until all upgrades have been installed..."
 msgstr "Bitte warten, bis alle Aktualisierungen installiert wurden..."
 
@@ -34,6 +34,19 @@ msgstr ""
 "werden. Bitte installieren Sie das Paket \"aufs-tools\".\\nZum Fortfahren "
 "ENTER drücken..."
 
+#: usr/bin/install-software-upgrades-root:60
+msgid "Key press detected. Window is not closed automatically."
+msgstr "Tastendruck erkannt. Fenster wird nicht automatisch geschlossen."
+
+#: usr/bin/install-software-upgrades-root:108
+#, sh-format
+msgid "This window will be closed automatically in $TIMEOUT seconds."
+msgstr "Dieses Fenster wird in $TIMEOUT Sekunden automatisch geschlossen."
+
+#: usr/bin/install-software-upgrades-root:109
+msgid "Press any key to keep this window open."
+msgstr "Eine Taste drücken, um dieses Fenster geöffnet zu lassen."
+
 #: usr/bin/install-software-upgrades-user:117
 msgid "Don't unplug the power supply of your computer!"
 msgstr "Entfernen Sie NICHT die Stromversorgung ihres Computers!"
@@ -42,20 +55,17 @@ msgstr "Entfernen Sie NICHT die Stromversorgung ihres Computers!"
 msgid "Connect a power supply to your computer!"
 msgstr "Schließen Sie ihren Computer an eine Stromversorgung an!"
 
-#: usr/bin/install-software-upgrades-user:124
+#: usr/bin/install-software-upgrades-user:127
 msgid ""
 "The upgrades will be running in a terminal window.\\nDon't close this window!"
 msgstr ""
 "Die Aktualisierungen werden in einem Terminal-Fenster ausgeführt.\\nDieses "
 "Fenster NICHT schließen!"
 
-#: usr/bin/install-software-upgrades-user:124
+#: usr/bin/install-software-upgrades-user:127
 msgid "Don't turn off the computer!"
 msgstr "Schalten Sie den Computer NICHT aus!"
 
-#: usr/bin/install-software-upgrades-user:135
+#: usr/bin/install-software-upgrades-user:176
 msgid "The upgrade process finished."
 msgstr "Die Aktualisierungen sind abgeschlossen."
-
-#~ msgid "Cleaning up file system, please wait..."
-#~ msgstr "Das Dateisystem wird aufgeräumt, bitte warten..."
