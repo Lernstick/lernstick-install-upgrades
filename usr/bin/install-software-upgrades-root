@@ -105,6 +105,6 @@ then
 fi
 
 TIMEOUT=10
-echo "$(gettext "This window will be closed automatically in \$TIMEOUT seconds.")
-echo "$(gettext "Press any key to keep this window open.")
+echo "$(eval_gettext "This window will be closed automatically in \$TIMEOUT seconds.")"
+echo "$(gettext "Press any key to keep this window open.")"
 countdown $TIMEOUT
